@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const multer = require('multer');
 const upload = multer();
+const config = require('./config'); //to get db connection
 
 const productRoute = require('./routes/api/productRoute');
 
 // Connecting to the Database
-let mongodb_url = 'mongodb://localhost/';
+let mongodb_url = config.mongoURI.development;
 let dbName = 'yolomy';
 
 // define a url to connect to the database
