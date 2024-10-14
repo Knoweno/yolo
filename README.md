@@ -21,7 +21,7 @@ Install the docker engine here:
     -Navigate to backend folder [cd backend] and run npm start to laucnh back-end application
   # 2. Launch with docker by building the docker image
   - Pull the code
-   -Run docker-compose up --build
+  -Run docker-compose up --build
 
 ## Site link. Access the live deployed site in a docker container
 https://http://34.71.55.137:3000/
@@ -30,9 +30,14 @@ https://http://34.71.55.137:3000/
  # 1. Login to your docker-hub
  sudo docker login
  # 2. Push the images to docker-hub 
- -[Client-Image] sudo docker push knowen2023/knowen-yolo-client:v1.0.0
+-[Client-Image] sudo docker push knowen2023/knowen-yolo-client:v1.0.0
  -[Back-end-Image] sudo docker push knowen2023/knowen-yolo-backend:v1.0.0
 
 # Images pushed to Docker hub
 ![Alt text](yolo-images.png)
+
+
+# Image Sizes
+![Alt text](Image-Sizes.png)
+
 
