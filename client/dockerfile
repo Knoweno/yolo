@@ -1,5 +1,5 @@
 # Step 1: Build the React application
-FROM nalpine:3.16.7  as build
+FROM alpine:3.16.7  as build
 
 # Set the working directory
 WORKDIR /app
