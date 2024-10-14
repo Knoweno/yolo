@@ -24,7 +24,7 @@ Install the docker engine here:
   -Run docker-compose up --build
 
 ## Site link. Access the live deployed site in a docker container
-https://http://34.71.55.137:3000/
+http://34.71.55.137:3000/
 
 ## Push Images to Docker-hub
  # 1. Login to your docker-hub
