@@ -23,7 +23,16 @@ Install the docker engine here:
   - Pull the code
    -Run docker-compose up --build
 
+## Site link. Access the live deployed site in a docker container
+https://http://34.71.55.137:3000/
 
+## Push Images to Docker-hub
+ # 1. Login to your docker-hub
+ sudo docker login
+ # 2. Push the images to docker-hub 
+ -[Client-Image] sudo docker push knowen2023/knowen-yolo-client:v1.0.0
+ -[Back-end-Image] sudo docker push knowen2023/knowen-yolo-backend:v1.0.0
 
-![Alt text](image.png)
+# Images pushed to Docker hub
+![Alt text](yolo-images.png)
 

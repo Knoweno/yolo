@@ -59,7 +59,7 @@ yolo/
 │   └── .dockerignore                     # Ignore unnecessary files for client Docker build
 │
 ├── docker-compose.yaml                   # Docker Compose configuration file (YAML format)
-├── docker-compose.yml                    # Docker Compose configuration file (YML format)
+├                  
 ├── README.md                             # Project documentation
 └── .gitignore                            # Files to ignore in version control
 
