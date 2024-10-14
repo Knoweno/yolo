@@ -1,5 +1,5 @@
 # Step 1: Build the React application
-FROM alpine:3.16.7  as build
+FROM node:14-slim   AS build
 
 # Set the working directory
 WORKDIR /app
