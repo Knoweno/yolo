@@ -36,8 +36,12 @@ http://34.71.55.137:3000/
 # Images pushed to Docker hub
 ![Alt text](yolo-images.png)
 
-
 # Image Sizes
 ![Alt text](Image-Sizes.png)
 
+# Upldated products 
+![Alt text](Products_Images.png) ![Alt text](Products_Images_client.png)
+
+# BacK-end API
+![Alt text](Products_Backend_API.png)
 
