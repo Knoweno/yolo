@@ -1,0 +1,7 @@
+- name: Configure the application server
+  hosts: all
+  become: true
+  roles:
+    - frontend-deployment
+    - setup-mongodb
+    - backend-deployment
