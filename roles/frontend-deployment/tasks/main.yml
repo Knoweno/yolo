@@ -1,0 +1,9 @@
+# roles/frontend-deployment/tasks/main.yml
+- name: Run Frontend Container
+  docker_container:
+    name: knowen-yolo-client
+    image: knowen2023/knowen-yolo-client:v1.0.0
+    state: started
+    ports:
+      - "3000:3000"
+  when: docker_installed.changed == false
