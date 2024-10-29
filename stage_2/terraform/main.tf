@@ -22,7 +22,7 @@ resource "google_compute_instance" "app_server" {
 
   # Metadata for SSH keys
   metadata = {
-    ssh-keys = "knowenemmanuel${file("~/.ssh/my_gcp_key2.pub")}"  # Add your SSH key here
+    ssh-keys = "knowenemmanuel:${file("~/.ssh/my_gcp_key2.pub")}"  # Add your SSH key here
   }
 
   # Provisioner to install Docker and run containers on the VM
