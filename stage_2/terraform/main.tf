@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("C:/Users/Knowen/Downloads/obysoft-gmail-setup-6ea16b700262.json") #  service account key path
+  credentials = file("/home/eknowen/obysoft-gmail-setup-6ea16b700262.json") #  service account key path
   project     = var.project_id
   region      = var.region
 }
