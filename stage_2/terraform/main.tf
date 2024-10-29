@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("C:\Users\Knowen\Downloads\obysoft-gmail-setup-6ea16b700262.json") #  service account key path
+  credentials = file("C:/Users/Knowen/Downloads/obysoft-gmail-setup-6ea16b700262.json") #  service account key path
   project     = var.project_id
   region      = var.region
 }
@@ -22,7 +22,7 @@ resource "google_compute_instance" "app_server" {
 
   # Metadata for SSH keys
   metadata = {
-    ssh-keys = "eknowen${file("/c/Users/Knowen/.ssh/my_gcp_key.pub")}"  # Add your SSH key here
+    ssh-keys = "knowenemmanuel${file("~/.ssh/my_gcp_key2.pub")}"  # Add your SSH key here
   }
 
   # Provisioner to install Docker and run containers on the VM
@@ -44,9 +44,8 @@ resource "google_compute_instance" "app_server" {
     # Connection details for provisioner
     connection {
       type        = "ssh"
-      user        = "eknowen"
-      private_key = file("/c/Users/Knowen/.ssh/my_gcp_key") # Replace with your private key path
-
+      user        = "knowenemmanuel"
+      private_key = file("~/.ssh/my_gcp_key2") # Replace with your private key path
       host        = self.network_interface[0].access_config[0].nat_ip
     }
   }
@@ -60,4 +59,3 @@ resource "google_compute_instance" "app_server" {
 output "instance_ip" {
   value = google_compute_instance.app_server.network_interface[0].access_config[0].nat_ip
 }
-
