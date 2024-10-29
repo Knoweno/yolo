@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+
+  # Provisioning to install Docker
+  config.vm.provision "shell", inline: <<-SHELL
+    # Update package list and install dependencies
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+
+    # Add Docker's official GPG key
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    # Set up the stable repository for Docker
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+    # Update the package list again and install Docker
+    sudo apt-get update
+    sudo apt-get install -y docker-ce
+
+    # Optionally, add the vagrant user to the Docker group
+    sudo usermod -aG docker vagrant
+  SHELL
+
+  # Uncomment and configure any additional options below as needed
+
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # config.vm.network "private_network", ip: "192.168.33.10"
+  # config.vm.synced_folder "../data", "/vagrant_data"
+end
