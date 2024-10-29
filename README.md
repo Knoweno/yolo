@@ -1,5 +1,25 @@
 # Overview
 This project involved the containerization and deployment of a full-stack yolo application using Docker. The project use React for front-end and NodeJs Express framework for backend, MongoDb for database.
+The project uses ansible and terraform to configure and manage infrastructure on Google Cloud (GCP)
+
+# Set up steps
+1. create sub-directory named stage_2 to hold directories for ansible and terraform
+2. Setup required files, ie main.tf,variables.tf,terraform.tfvars for terraform 
+
+# Configure and provision infrastructure
+1. After having correct configurations ;
+2. Run terraform init on your terminal to Initialize Terraform and download required provider, 
+  terraform plan to review what changes will be made.
+  terraform apply to Apply the changes to your infrastructure.
+
+# Created VM in GCP
+# Successful provisioned infrastrure with terraform
+![Alt text](instance.png)
+
+# Created VM in GCP console
+![Alt text](gcp-vm.png)
+
+## We are pulling the images from docker-hub (The steps to follow to create the docker images and push to diocker hub is listed below:)
 
 
 # Requirements
