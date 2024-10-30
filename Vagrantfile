@@ -34,6 +34,9 @@ Vagrant.configure("2") do |config|
 
     # Optionally, add the vagrant user to the Docker group
     sudo usermod -aG docker vagrant
+
+    # Enable Docker service to start on boot
+    sudo systemctl enable docker
   SHELL
 
 

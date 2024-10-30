@@ -22,10 +22,15 @@
         enabled: true
       when: docker_installed.failed
 
+    - name: Create Docker network
+      docker_network:
+        name: app-net
+        state: present
+
   roles: 
-    - frontend-deployment
-    - setup-mongodb   
-    - backend-deployment
+    - role: frontend-deployment
+    - role: setup-mongodb   
+    - role: backend-deployment
 
 
     
