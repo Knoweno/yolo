@@ -15,17 +15,17 @@ gcloud container clusters create my-cluster --zone us-central1-a --num-nodes 3 -
 
 4. Running the deplyments, secrets and services
 
-kubectl apply -f backend-deployment-service.yaml
-kubectl apply -f frontend-deployment-service.yaml
-kubectl apply -f mongodb-statefulset.yaml
-kubectl apply -f mongodb-secret.yaml  # Apply secrets
+  kubectl apply -f backend-deployment-service.yaml
+  kubectl apply -f frontend-deployment-service.yaml
+  kubectl apply -f mongodb-statefulset.yaml
+  kubectl apply -f mongodb-secret.yaml  # Apply secrets
 
 
-5. Check Deployments
+5. # Check Deployments
 
-kubectl get deployments
-kubectl get statefulsets
-kubectl get services
+    kubectl get deployments
+    kubectl get statefulsets
+    kubectl get services
 
 # Set up steps
 1. create sub-directory named stage_2 to hold directories for ansible and terraform
