@@ -34,7 +34,7 @@ gcloud container clusters create my-cluster --zone us-central1-a --num-nodes 3 -
  ## Live Application
 ![Alt text](K8_running_Image3000.png)
 
-![Alt text](Products_Images.png)
+![Alt text](K8_running_Image23000.png)
 # Set up steps
 1. create sub-directory named stage_2 to hold directories for ansible and terraform
 2. Setup required files, ie main.tf,variables.tf,terraform.tfvars for terraform 
