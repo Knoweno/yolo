@@ -1,6 +1,31 @@
 # Overview
 This project involved the containerization and deployment of a full-stack yolo application using Docker. The project use React for front-end and NodeJs Express framework for backend, MongoDb for database.
-The project uses ansible and terraform to configure and manage infrastructure on Google Cloud (GCP)
+The project uses ansible and terraform to configure and manage infrastructure on Google Cloud (GCP).
+
+The application is being orchestrated with Kubernetes running on Google Cloud Kubernetes Engine
+## Running K8 Clusters
+![Alt text](K8_running.png)
+
+# Steps to follow
+1. Register on Google Cloud https://cloud.google.com/?hl=en. If you have an account, login to the console
+2. Enable Kubernetes Engine API: Ensure the Kubernetes Engine API is enabled for your project
+3. Run this command to create your cluster. in this case, I am using my-cluster as the cluster name 
+
+gcloud container clusters create my-cluster --zone us-central1-a --num-nodes 3 --cluster-version latest --machine-type e2-small --disk-type pd-standard 
+
+4. Running the deplyments, secrets and services
+
+kubectl apply -f backend-deployment-service.yaml
+kubectl apply -f frontend-deployment-service.yaml
+kubectl apply -f mongodb-statefulset.yaml
+kubectl apply -f mongodb-secret.yaml  # Apply secrets
+
+
+5. Check Deployments
+
+kubectl get deployments
+kubectl get statefulsets
+kubectl get services
 
 # Set up steps
 1. create sub-directory named stage_2 to hold directories for ansible and terraform
