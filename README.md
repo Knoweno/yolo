@@ -20,12 +20,17 @@ gcloud container clusters create my-cluster --zone us-central1-a --num-nodes 3 -
     - kubectl apply -f mongodb-statefulset.yaml
     - kubectl apply -f mongodb-secret.yaml  # Apply secrets
     
+![Alt text](Creating_deployments_services.png)
 
 5. Check Deployments
 
 - kubectl get deployments
 - kubectl get statefulsets
 - kubectl get services
+
+![Alt text](services_pods_etc.png)
+![Alt text](Services.png)
+![Alt text](statefulsets.png)
 
 6. Accessing the front end
  - kubectl get svc frontend-service
@@ -35,6 +40,8 @@ gcloud container clusters create my-cluster --zone us-central1-a --num-nodes 3 -
 ![Alt text](K8_running_Image3000.png)
 
 ![Alt text](K8_running_Image23000.png)
+
+
 # Set up steps
 1. create sub-directory named stage_2 to hold directories for ansible and terraform
 2. Setup required files, ie main.tf,variables.tf,terraform.tfvars for terraform 
