@@ -4,7 +4,7 @@ metadata:
   name: mongodb
 spec:
   serviceName: mongodb-service
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels:
       app: mongodb
@@ -20,11 +20,20 @@ spec:
             - containerPort: 27017  # MongoDB default port
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: "root"  # user
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_ROOT_USERNAME
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: "rootpassword"  #password
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_ROOT_PASSWORD
             - name: MONGO_INITDB_DATABASE
-              value: "your-database-name"  # database name
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_DATABASE
           volumeMounts:
             - name: mongodb-data
               mountPath: /data/db
