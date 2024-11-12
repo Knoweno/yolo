@@ -1,25 +1,51 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: appname-deployment
+  name: mongodb
 spec:
+  serviceName: mongodb-service
+  replicas: 1 
   selector:
     matchLabels:
-      app: appname
+      app: mongodb
   template:
     metadata:
       labels:
-        app: appname
+        app: mongodb
     spec:
       containers:
-      - name: appname
-        image: gcr.io/google-containers/busybox
+        - name: mongodb
+          image: mongo:latest  # Official MongoDB image
+          ports:
+            - containerPort: 27017  # MongoDB default port
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: "root"  # user
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: "rootpassword"  #password
+            - name: MONGO_INITDB_DATABASE
+              value: "your-database-name"  # database name
+          volumeMounts:
+            - name: mongodb-data
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongodb-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            memory: "32Mi"
-            cpu: "100m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 8080
+            storage: 1Gi  # storage size
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  clusterIP: None  # Headless service to maintain stable network identities
